@@ -1,0 +1,375 @@
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+/*Para invocar colores ejm: background-color: var(--primario)*/
+/* 
+320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more —  Extra large screens, TV 
+*/
+
+:root {
+  --blanco: #ffffff;
+  --oscuro: #212121;
+  --primario: #002b4c;
+  --secundario: #00467b;
+  --gris-c: #757575;
+  --gris-o: #3a3a3a;
+
+  --mobile-screen: 480px;
+  --small-screen: 769px;
+  --desktop-screeb: 1200px;
+}
+
+/* GENERALES */
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /** Reset para REMS - 62.5% = 10px de 16px **/
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2 {
+  font-family: "Zilla Slab", serif;
+}
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
+.page-content {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/*ILUSTRATION CONTAINER*/
+
+.ilustrations-container {
+  position: fixed;
+  height: 35vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--primario);
+}
+.ilustration {
+  position: relative;
+  z-index: 999;
+  height: 35vh;
+  width: fit-content;
+}
+.ilustration img {
+  height: 42vh;
+  width: auto;
+  transform: translateY(-8vh);
+}
+
+.countdown-items {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  width: 44.5%;
+  height: 11.5vh;
+  top: 12.5vh;
+  left: 27.4%;
+
+  padding-left: 5%;
+  padding-right: 2%;
+  padding-bottom: 1.5vh;
+
+  transform: rotate(6.5deg);
+}
+
+.time-interval-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: fit-content;
+}
+
+.time-interval-container h1 {
+  font-size: 2.5vh;
+}
+
+.time-interval-container h2 {
+  font-size: 1.5vh;
+}
+
+.wave {
+  position: absolute;
+  height: 10rem;
+  width: 100%;
+  top: 99%;
+  right: 0;
+
+  background-image: url(../img/wave1.svg);
+  background-repeat: repeat-x;
+  background-size: 100%;
+}
+
+.wave.wave1 {
+  animation: animate 30s linear infinite;
+  z-index: 999;
+}
+.wave.wave2 {
+  animation: animate1 20s linear infinite;
+  animation-delay: -5s;
+  opacity: 0.5;
+  z-index: 998;
+
+  top: 100%;
+}
+.wave.wave3 {
+  animation: animate 10s linear infinite;
+  animation-delay: -10s;
+  opacity: 0.2;
+  z-index: 997;
+
+  top: 97%;
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 100vw;
+  }
+}
+
+@keyframes animate1 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -100vw;
+  }
+}
+
+/*INFO CONTAINER*/
+
+.info-container {
+  height: auto;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.info-container section {
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 40vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.info-container section img {
+  height: 15rem;
+  width: auto;
+}
+
+.info-container section h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primario);
+  margin-top: 2.5vh;
+}
+
+.info-container section span {
+  height: 0.5rem;
+  width: 60%;
+  margin-top: 2.5vh;
+  background-color: rgb(172, 13, 13);
+}
+
+.info-container section p {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--primario);
+  margin-top: 2.5vh;
+}
+
+.iconos {
+  height: fit-content;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-top: 2.5vh;
+}
+
+.iconos i {
+  color: var(--primario);
+  margin: 2vw;
+  transition: all 1s cubic-bezier(0.5, 0, 0.5, 2);
+}
+
+.iconos i:hover {
+  color: rgb(172, 13, 13);
+  transform: scale(1.2);
+}
+
+@media (min-width: 769px) {
+  .page-content {
+    flex-direction: row;
+  }
+
+  /*ILUSTRATION CONTAINER*/
+
+  .ilustrations-container {
+    position: relative;
+    height: 100vh;
+    width: 50%;
+  }
+
+  .ilustration {
+    height: fit-content;
+    width: 98%;
+  }
+
+  .ilustration img {
+    height: auto;
+    width: 100%;
+    transform: translateY(0);
+  }
+
+  .img-crop-overflow {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+
+    overflow-y: scroll;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .img-crop-overflow::-webkit-scrollbar {
+    display: none;
+  }
+
+  .countdown-items {
+    top: 48.5%;
+    width: 45%;
+    height: 27%;
+
+    padding-right: 3%;
+  }
+
+  .time-interval-container h1 {
+    font-size: 2.2vw;
+  }
+
+  .time-interval-container h2 {
+    font-size: 1.2vw;
+  }
+
+  .wave {
+    height: 10rem;
+    width: 100vh;
+    top: 0;
+    right: 0.1%;
+
+    transform-origin: top right;
+    transform: rotate(-90deg);
+    background-image: url(../img/wave1.svg);
+    background-repeat: repeat-x;
+  }
+
+  .wave.wave2 {
+    top: 0;
+    right: -0.5%;
+  }
+  .wave.wave3 {
+    top: 0;
+    right: 0.5;
+  }
+
+  @keyframes animate {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: 100vh;
+    }
+  }
+
+  @keyframes animate1 {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: -100vh;
+    }
+  }
+  /*INFO CONTAINER*/
+
+  .info-container {
+    height: 100vh;
+    width: 50%;
+    overflow: hidden;
+  }
+
+  .info-container-positioning {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .info-container section {
+    height: fit-content;
+
+    overflow-y: scroll;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    padding-top: 2vh;
+    padding-left: 10vw;
+    padding-right: 5vw;
+  }
+  .info-container section::-webkit-scrollbar {
+    display: none;
+  }
+  .iconos i {
+    margin: 2rem;
+  }
+}
